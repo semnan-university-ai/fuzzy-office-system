@@ -1,0 +1,100 @@
+[System]
+Name='office_system'
+Type='mamdani'
+Version=2.0
+NumInputs=5
+NumOutputs=4
+NumRules=0
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='temperature_sensor'
+Range=[-35 50]
+NumMFs=8
+MF1='dead_cold':'trimf',[-37 -30 -23]
+MF2='ice':'trimf',[-27 -20 -13]
+MF3='very_cold':'trimf',[-17 -10 -3]
+MF4='conventional':'trimf',[12 20 27]
+MF5='dead_hot':'trimf',[37 45 53]
+MF6='cold':'trimf',[-7 0 7]
+MF7='regular_cold':'trimf',[3 10 17]
+MF8='warm':'trimf',[23 35 43]
+
+[Input2]
+Name='totalman_sensor'
+Range=[-5 90]
+NumMFs=5
+MF1='little':'trimf',[7 20 32]
+MF2='high':'trimf',[47 60 74]
+MF3='very_high':'trimf',[67 80 93]
+MF4='normal':'trimf',[27 40 53]
+MF5='very_little':'trimf',[-7 0 12]
+
+[Input3]
+Name='time_working'
+Range=[0 24]
+NumMFs=5
+MF1='working':'trimf',[13 16 19]
+MF2='standby':'trimf',[10 12 14]
+MF3='sleeping':'trimf',[17 20 26]
+MF4='working':'trimf',[5 7 12]
+MF5='sleeping':'trimf',[-10 0 5]
+
+[Input4]
+Name='place_priority'
+Range=[20 500]
+NumMFs=4
+MF1='room':'trimf',[15 40 60]
+MF2='room_longer':'trimf',[80 130 160]
+MF3='room_very_longer':'trimf',[140 300 500]
+MF4='room_long':'trimf',[50 80 100]
+
+[Input5]
+Name='place_control'
+Range=[-1 1]
+NumMFs=2
+MF1='normal':'trimf',[-1 -0.5 0.3]
+MF2='exceptional':'trimf',[-0.3 0.5 1]
+
+[Output1]
+Name='fan_power'
+Range=[-1 1]
+NumMFs=2
+MF1='start_on':'trimf',[-1 -0.5 0.3]
+MF2='start_off':'trimf',[-0.3 0.5 1]
+
+[Output2]
+Name='fan_speed'
+Range=[0 10]
+NumMFs=5
+MF1='very_slow':'trimf',[-2 1 2.5]
+MF2='medium':'trimf',[3.7 5 6.5]
+MF3='very_fast':'trimf',[7.7 9 11]
+MF4='slow':'trimf',[1.8 3 4.3]
+MF5='fast':'trimf',[5.7 7 8.5]
+
+[Output3]
+Name='heater_cooler_power'
+Range=[-1 1]
+NumMFs=2
+MF1='start_on':'trimf',[-1 -0.5 0.3]
+MF2='start_off':'trimf',[-0.3 0.5 1]
+
+[Output4]
+Name='heater_cooler_temprature'
+Range=[-35 50]
+NumMFs=8
+MF1='very_heater':'trimf',[-27 -20 -13]
+MF2='heater_medium':'trimf',[-8 0 7]
+MF3='cooler_cold':'trimf',[23 35 43]
+MF4='dead_heater':'trimf',[-37 -30 -23]
+MF5='heater_hot':'trimf',[-17 -10 -3]
+MF6='heater_few':'trimf',[3 10 17]
+MF7='heater_cooe_off':'trimf',[13 20 27]
+MF8='cooler_very_cold':'trimf',[37 45 52]
+
+[Rules]
